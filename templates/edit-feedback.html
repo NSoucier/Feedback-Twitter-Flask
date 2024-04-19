@@ -1,8 +1,8 @@
 {% extends 'index.html' %}
 
 {% block content %}
-<h1 class="fs-3">Sign Up</h1>
-<p class="lead">Register below to join our application!</p>
+<h1 class="fs-3">Feedback Form</h1>
+<p class="lead">Edit feedback for {{username}} below!</p>
 
 <form class="col-6" method="POST">
 
@@ -20,7 +20,7 @@
   </p>
   {% endfor %}
 
-  <button class="btn btn-success" type="submit">Register</button>
+  <button class="btn btn-success" type="submit">Submit</button>
 
 </form>
 {% endblock %}

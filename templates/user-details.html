@@ -1,0 +1,31 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<h3>View your information below:</h3>
+
+<p><b>Username:</b> {{user.username}}</p>
+<p><b>Email:</b> {{user.email}} </p>
+<p><b>First name:</b> {{user.first_name}} </p>
+<p><b>Last name:</b> {{user.last_name}} </p>
+<form style="display:inline;">
+    <button formaction="/users/{{user.username}}/feedback/add" formmethod="GET" class="btn btn-sm btn-info">Add feedback</button>
+    <button formaction="/users/{{user.username}}/delete" formmethod="POST" class="btn btn-sm btn-danger">Delete user</button>
+</form>
+
+<div>
+    {% for feedback in user.feedbacks %}
+    <div class="card my-4 col-8">
+        <div class="card-body">
+            <h5 class="card-title text-info">{{feedback.title}}</h5>
+            <p class="card-text">{{feedback.content}}</p>
+            <p class="card-text text-muted">From: {{feedback.username}}</p>
+            <form style="display:inline;">
+                <button formaction="/feedback/{{feedback.id}}/update" formmethod="GET" class="btn btn-sm btn-info">Edit</button>
+                <button formaction="/feedback/{{feedback.id}}/delete" formmethod="POST" class="btn btn-sm btn-danger"><i class="fa-solid fa-trash"></i></button>
+            </form>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

@@ -1,8 +1,13 @@
 {% extends 'index.html' %}
 
 {% block content %}
-<h1 class="fs-3">Sign Up</h1>
-<p class="lead">Register below to join our application!</p>
+
+{% for category, msg in get_flashed_messages(with_categories=True) %}
+<div class="alert alert-{{category}}">{{msg}}</div>
+{% endfor %}  
+
+<h1 class="fs-3">Login</h1>
+<p class="lead">Welcome back, login below!</p>
 
 <form class="col-6" method="POST">
 
@@ -20,7 +25,7 @@
   </p>
   {% endfor %}
 
-  <button class="btn btn-success" type="submit">Register</button>
+  <button class="btn btn-success" type="submit">Login</button>
 
 </form>
 {% endblock %}
